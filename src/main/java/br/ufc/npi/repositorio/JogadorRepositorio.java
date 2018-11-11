@@ -14,7 +14,7 @@ import br.ufc.npi.bean.Jogador;
 @Transactional
 public interface JogadorRepositorio extends JpaRepository<Jogador, Integer> {
 	
-	Jogador findByNome(String Nome);
+	Jogador findByNome(String Nome); 
 
 	@Query("from Jogador j where j.time is null")
 	List<Jogador> getJogadoresSemTime();
