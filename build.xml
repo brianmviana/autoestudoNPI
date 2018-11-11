@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================                  
+     Brian M. Viana                                                                
+     ====================================================================== -->
+<project name="FutManager" default="sing">
+	<description>
+        Projeto de manutenção
+    </description>
+
+
+	<target name="clean">
+		<delete dir="bin">
+		</delete>
+	</target>
+
+	<target name="compile" depends="clean">
+		<mkdir dir="bin/classes" />
+		<javac srcdir="src" destdir="bin/classes">
+		</javac>
+	</target>
+
+	<target name="package" depends="compile">
+		<mkdir dir="bin/jar"/>
+		<jar destfile="bin/jar/FutManager.jar" basedir="bin/classes">
+			<manifest>
+				<attribute name="Main-Class" value="br.ufc.npi.AutoestudoApplication" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="test" depends="package">
+		<java jar="bin/jar/FutManager.jar" fork="true" />
+	</target>
+
+	<target name="sing" depends="test">
+		<signjar jar="bin/jar/FutManager.jar"
+		         alias="mykey" keystore=".keystore"
+		         storepass="12345678">
+		</signjar>
+	</target>
+
+
+</project>
