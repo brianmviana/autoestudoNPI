@@ -5,22 +5,22 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>br.ufc.npi</groupId>
-	<artifactId>autoestudo</artifactId>
+	<artifactId>futmanager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>autoestudo</name>
+	<name>futmanager</name>
 	<description>Autoestudo do NPI</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.10.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath />  <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
-	    <start-class>br.ufc.npi.AutoestudoApplication</start-class>
+	 <!-- <start-class>br.ufc.npi.NewSpringBootWebApplicationForWAR</start-class> -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
@@ -48,12 +48,13 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
+			<optional>true</optional>
+<!-- 			<scope>runtime</scope> -->
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
+			<scope>runtime</scope>			
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
