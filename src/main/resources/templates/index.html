@@ -5,7 +5,7 @@
 
 <head>
 	<title>FutManager</title>
-	<link href="/webjars/materializecss/0.97.7/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+	<link th:href="@{/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
 <body>
@@ -20,8 +20,8 @@
 	    </div>
 	</div>
 
-	<script src="/webjars/jquery/2.2.4/jquery.js"></script>
-	<script src="/webjars/materializecss/0.97.7/js/materialize.js"></script>
+	<script th:src="@{/js/jquery.js}"></script>
+	<script th:src="@{/js/materialize.js}"></script>
 </body>
 
 </html>
