@@ -5,7 +5,8 @@
 
 <head>
 <title>FutManager</title>
-	<link th:href="@{/css/materialize.css}" type="text/css" rel="stylesheet" media="screen,projection" />
+<link th:href="@{/css/materialize.css}" type="text/css" rel="stylesheet"
+	media="screen,projection" />
 </head>
 
 <body>
@@ -23,9 +24,9 @@
 
 			</div>
 			<div class="col s6">
-				<a href="/times/"
+				<a th:href="@{/times/}"
 					class="valing btn-large waves-effect waves-light teal right">
-					Gerenciar Times </a> <a href="/jogadores/"
+					Gerenciar Times </a> <a th:href="@{/jogadores/}"
 					class="valing btn-large waves-effect waves-light teal right">
 					Gerenciar Jogadores </a>
 			</div>
