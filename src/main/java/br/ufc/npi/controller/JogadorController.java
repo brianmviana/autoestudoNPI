@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,7 +20,7 @@ public class JogadorController {
 
 	@Autowired
 	JogadorService jogadorService;
-	
+
 	@RequestMapping(path="/")
 	public ModelAndView index() {
 		ModelAndView model = new ModelAndView("jogadores");
@@ -26,12 +28,18 @@ public class JogadorController {
 		model.addObject("jogadores", jogadores);
 		return model;
 	}
-		
+
 	@RequestMapping(path="/salvar", method=RequestMethod.POST)
 	public String salvarTime(@RequestParam String nomeJogador,@RequestParam Integer idadeJogador) {
 		jogadorService.salvarJogador(nomeJogador, idadeJogador);
 		return "redirect:/jogadores/";
+	}	
+
+	@GetMapping("/excluir/{id}")
+	public String excluirJogador(@PathVariable("id") Integer idJogador) {
+		jogadorService.delJogador(idJogador);
+		return "redirect:/jogadores/";
 	}
-	
-	
+
+
 }

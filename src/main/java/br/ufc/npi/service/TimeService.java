@@ -58,6 +58,28 @@ public class TimeService {
 		timeRepositorio.save(time);
 		jogadorRepositorio.save(jogador);
 	}
+	
+	public void delAllJogadorDoTime(Integer idTime, Integer idJogador) {
+		Time time = timeRepositorio.findOne(idTime);
+		Jogador jogador = jogadorRepositorio.findOne(idJogador);
+		time.getJogadores().remove(jogador);
+		jogador.setTime(null);
+		jogadorRepositorio.save(jogador);
+	}
+	
+	public void excluirTime(Integer idTime) {
+		if(!timeRepositorio.findOne(idTime).getJogadores().isEmpty()) {
+			Time time = timeRepositorio.findOne(idTime);
+			while(!time.getJogadores().isEmpty()) {
+				Jogador jogador = time.getJogadores().get(0);
+				time.getJogadores().remove(jogador);
+				jogador.setTime(null);
+				jogadorRepositorio.save(jogador);			
+			}
+			timeRepositorio.save(time);
+		}
+		timeRepositorio.delete(idTime);
+	}
 
 
 }
