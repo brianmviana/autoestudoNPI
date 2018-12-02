@@ -14,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 import br.ufc.npi.bean.Jogador;
 import br.ufc.npi.service.JogadorService;
 
+
+
 @Controller
 @RequestMapping(path="/jogadores/")
 public class JogadorController {
