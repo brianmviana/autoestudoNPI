@@ -20,8 +20,8 @@ import br.ufc.npi.service.JogadorService;
 @RequestMapping(path="/jogadores/")
 public class JogadorController {
 
-	@Autowired
-	JogadorService jogadorServicea;
+//	@Autowired
+	JogadorService jogadorService;
 	
 
 	@RequestMapping(path="/")
