@@ -21,7 +21,8 @@ import br.ufc.npi.service.JogadorService;
 public class JogadorController {
 
 	@Autowired
-	JogadorService jogadorService;
+	JogadorService jogadorServicea;
+	
 
 	@RequestMapping(path="/")
 	public ModelAndView index() {
