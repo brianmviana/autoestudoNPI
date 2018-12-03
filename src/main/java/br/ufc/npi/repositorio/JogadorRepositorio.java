@@ -16,8 +16,6 @@ public interface JogadorRepositorio extends JpaRepository<Jogador, Integer> {
 	
 	Jogador findByNome(String Nome); 
 
-	Jogador findById(Integer Id); 
-
 	@Query("from Jogador j where j.time is null")
 	List<Jogador> getJogadoresSemTime();
 	
