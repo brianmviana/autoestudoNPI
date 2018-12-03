@@ -39,7 +39,7 @@ public class PrincipalControllerTests {
 	public void testIndex() throws Exception{
 		this.mockMvc.perform(get("/"))
 		.andExpect(status().isOk())
-		.andExpect(view().name("index"))
+		.andExpect(view().name("indexs"))
 		.andDo(print());
 	}
 
