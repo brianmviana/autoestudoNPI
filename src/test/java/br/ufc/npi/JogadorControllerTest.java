@@ -1,4 +1,5 @@
 package br.ufc.npi;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -14,33 +15,32 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import br.ufc.npi.controller.PrincipalController;
+import br.ufc.npi.controller.JogadorController;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class PrincipalControllerTests {
-
+public class JogadorControllerTest {
 	@Autowired
-	private PrincipalController controller;
+	private JogadorController controller;
 
 	private MockMvc mockMvc;
 	@Before
 	public void setUp() {
-		mockMvc = MockMvcBuilders.standaloneSetup(new PrincipalController()).build();
+		mockMvc = MockMvcBuilders.standaloneSetup(new JogadorController()).build();
 	}
 
 
 	@Test
-	public void principalControler() throws Exception {
+	public void jogadorControler() throws Exception {
 		assertThat(controller).isNotNull();
 	}
 
 	@Test
 	public void testIndex() throws Exception{
-		this.mockMvc.perform(get("/"))
+		this.mockMvc.perform(get("/jogadores/"))
 		.andExpect(status().isOk())
-		.andExpect(view().name("index"))
+		.andExpect(view().name("jogadores"))
 		.andDo(print());
 	}
-
 }
