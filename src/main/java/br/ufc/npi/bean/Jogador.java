@@ -15,9 +15,16 @@ public class Jogador {
 
 	String nome;
 	Integer idade;
-	
+
 	@ManyToOne
 	Time time;
+	
+	public Jogador(){}
+	
+	public Jogador(String nome, Integer idade){
+		this.nome = nome;
+		this.idade = idade;
+	}
 
 	public Integer getId() {
 		return id;
@@ -50,7 +57,7 @@ public class Jogador {
 	public void setTime(Time time) {
 		this.time = time;
 	}
-	
-	
-	
+
+
+
 }
