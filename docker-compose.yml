@@ -1,11 +1,24 @@
-app-web:  
-  build: .
-  ports:
-    - "8888:8080"
-  links:
-    - app-db
+version: '2'
+services:
+  app-web:  
+    build: .
+    ports:
+      - "8888:8080"
+    depends_on:
+      - mysql
+    networks :
+      - mt-network
 
-app-db:  
-  build: ./db
-  ports:
-    - "5433:5432"
+  app-db:  
+    build: ./db
+    ports:
+      - "5433:5432"
+      volumes:
+    mysql-data:
+      driver: local
+    networks:
+      - mt-network
+
+  networks:
+    mt-network:
+      driver: bridge
