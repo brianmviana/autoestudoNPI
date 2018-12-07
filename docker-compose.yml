@@ -1,33 +1,11 @@
-version: '2.2'
+app-web:  
+  build: .
+  ports:
+    - "8081:8080"
+  links:
+    - app-db
 
-services:
-  tomcat:
-    image: futmanager
-    build: .
-    ports:
-      - '8888:8080'
-    environment:
-      - "SPRING_PROFILES_ACTIVE=docker"
-    volumes: 
-      - ./target/futmanager.war:/usr/local/tomcat/webapps/futmanager.war
-    networks:
-      - dbconection
-    depends_on:
-      - mysql
-
-  mysql:
-    image: mysql:5.7
-    environment:
-      - MYSQL_DATABASE=futmanager
-      - MYSQL_ROOT_PASSWORD=root
-    ports:
-      - '3307:3306'
-    networks:
-      - dbconection
-  
-volumes:
-  mysql-data:
-    driver: local
-networks:
-  dbconection:
-    driver: bridge
+app-db:  
+  build: ./db
+  ports:
+    - "5432:5432"
